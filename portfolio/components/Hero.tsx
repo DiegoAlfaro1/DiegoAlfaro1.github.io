@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 function scrollTo(id: string) {
   const el = document.getElementById(id);
@@ -156,10 +157,8 @@ export default function Hero() {
           >
             View Projects
           </button>
-          <a
-            href="https://github.com/DiegoAlfaro1/diegoalfaro.github.io/blob/main/tempora_resume.tex"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/resume"
             style={{
               fontFamily: "var(--font-mono)",
               fontSize: "0.8rem",
@@ -172,18 +171,21 @@ export default function Hero() {
               textDecoration: "none",
               border: "2px solid rgba(245,240,232,0.25)",
               transition: "border-color 0.2s, color 0.2s",
+              display: "inline-block",
             }}
             onMouseEnter={(e) => {
-              (e.target as HTMLElement).style.borderColor = "var(--amber)";
-              (e.target as HTMLElement).style.color = "var(--amber)";
+              const el = e.currentTarget as HTMLElement;
+              el.style.borderColor = "var(--amber)";
+              el.style.color = "var(--amber)";
             }}
             onMouseLeave={(e) => {
-              (e.target as HTMLElement).style.borderColor = "rgba(245,240,232,0.25)";
-              (e.target as HTMLElement).style.color = "var(--paper)";
+              const el = e.currentTarget as HTMLElement;
+              el.style.borderColor = "rgba(245,240,232,0.25)";
+              el.style.color = "var(--paper)";
             }}
           >
             View CV
-          </a>
+          </Link>
         </motion.div>
 
         {/* scroll hint */}

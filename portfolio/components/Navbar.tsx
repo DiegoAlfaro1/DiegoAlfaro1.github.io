@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const NAV_ITEMS = ["About", "Projects", "Skills", "Contact"];
 
@@ -48,7 +49,7 @@ export default function Navbar() {
         DA
       </button>
 
-      <div style={{ display: "flex", gap: "2rem" }}>
+      <div style={{ display: "flex", gap: "2rem", alignItems: "center" }}>
         {NAV_ITEMS.map((s) => (
           <button
             key={s}
@@ -81,6 +82,35 @@ export default function Navbar() {
             {s}
           </button>
         ))}
+
+        <Link
+          href="/resume"
+          style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: "0.72rem",
+            fontWeight: 700,
+            letterSpacing: "0.15em",
+            textTransform: "uppercase",
+            padding: "0.4rem 1rem",
+            background: "var(--amber)",
+            color: "var(--ink)",
+            textDecoration: "none",
+            border: "2px solid var(--amber)",
+            transition: "background 0.2s, color 0.2s",
+          }}
+          onMouseEnter={(e) => {
+            const el = e.currentTarget as HTMLElement;
+            el.style.background = "transparent";
+            el.style.color = "var(--amber)";
+          }}
+          onMouseLeave={(e) => {
+            const el = e.currentTarget as HTMLElement;
+            el.style.background = "var(--amber)";
+            el.style.color = "var(--ink)";
+          }}
+        >
+          Resume
+        </Link>
       </div>
     </motion.nav>
   );
