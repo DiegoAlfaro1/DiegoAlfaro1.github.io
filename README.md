@@ -1,2 +1,2 @@
-# DiegoAlfaro1.github.io
-Software engineering portfolio
+# diegoalfaro.github.io
+Github pages site for personal software portfolio
